@@ -32,8 +32,8 @@ const GlobalStyles = createGlobalStyle`
   :root {
     /* Colors */
     --dark-brown: #D87D4A;
-    --light-brown: ##fbaf85; 
-    --grey: ##F1F1F1; 
+    --light-brown: #fbaf85; 
+    --grey: #F1F1F1; 
     --white: #ffffff; 
     --pure-black: #000000; 
     --mixed-black:#101010;
