@@ -42,6 +42,9 @@ export const ProductYX1Details = styled.div`
   text-align: center;
   background-color: #f1f1f1;
   border-radius: 0.8rem;
+  @media (max-width: 640px) {
+    padding: 2.4rem 0;
+  }
 `;
 
 export const ProductYX1Name = styled.p`
