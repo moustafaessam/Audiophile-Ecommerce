@@ -1,3 +1,4 @@
+import Footer from "../../components/Footer/Footer";
 import StoreDescription from "../../components/UI/StoreDescription/StoreDescription";
 import Header from "../../features/Home/Header/Header";
 import ProductListing from "../../features/Home/ProductListing/ProductListing";
@@ -10,6 +11,7 @@ export default function Home() {
       <ProductListing />
       <SelectedProducts />
       <StoreDescription />
+      <Footer />
     </>
   );
 }

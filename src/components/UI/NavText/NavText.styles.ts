@@ -1,6 +1,11 @@
 import styled from "styled-components";
 
-export const StyledNvTextContainer = styled.div`
+type StyledNvTextContainerProps = {
+  isHidden: boolean;
+  flexDir?: "column" | "row";
+};
+
+export const StyledNvTextContainer = styled.div<StyledNvTextContainerProps>`
   display: flex;
   gap: 3.2rem;
   color: var(--white);
@@ -9,7 +14,15 @@ export const StyledNvTextContainer = styled.div`
   line-height: 25%;
   @media (max-width: 768px) {
     & {
-      display: none;
+      display: ${(props) => (props.isHidden ? "none" : "flex")};
+    }
+  }
+  @media (max-width: 640px) {
+    & {
+      flex-direction: ${(props) =>
+        props.flexDir === "column" ? "column" : "row"};
+      align-items: ${(props) =>
+        props.flexDir === "column" ? "center" : "flex-start"};
     }
   }
 `;

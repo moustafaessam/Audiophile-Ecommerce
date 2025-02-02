@@ -1,8 +1,13 @@
 import { StyledNavText, StyledNvTextContainer } from "./NavText.styles";
 
-export default function NavText() {
+type NavTextProps = {
+  isHidden: boolean;
+  flexDir?: "column" | "row";
+};
+
+export default function NavText({ isHidden, flexDir }: NavTextProps) {
   return (
-    <StyledNvTextContainer>
+    <StyledNvTextContainer isHidden={isHidden} flexDir={flexDir}>
       <StyledNavText>Home</StyledNavText>
       <StyledNavText>Headphones</StyledNavText>
       <StyledNavText>Speakers</StyledNavText>

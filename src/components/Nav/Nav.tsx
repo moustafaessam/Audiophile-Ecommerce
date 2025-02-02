@@ -32,14 +32,14 @@ export default function Nav() {
               src="/images/shared/tablet/maximize-2.svg"
             />
             <Logo />
-            <NavText />
+            <NavText isHidden={true} />
             <Cart />
           </>
         )
       ) : (
         <>
           <Logo />
-          <NavText />
+          <NavText isHidden={true} />
           <Cart />
         </>
       )}

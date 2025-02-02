@@ -7,9 +7,13 @@ import {
   StoreDescriptionParagraph,
 } from "./StoreDescription.styles";
 
-export default function StoreDescription() {
+type StoreDescriptionProps = {
+  styles?: React.CSSProperties;
+};
+
+export default function StoreDescription({ styles }: StoreDescriptionProps) {
   return (
-    <StoreDescriptionContainer>
+    <StoreDescriptionContainer style={styles}>
       <StoreDescriptionDetailsContainer>
         <StoreDescriptionHeader>
           Bringing you the{" "}
