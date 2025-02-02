@@ -1,6 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import GlobalStyles from "./assets/GlobalStyles";
 import { Suspense, lazy } from "react";
+const ProductPage = lazy(() => import("./pages/ProductPage/ProductPage"));
 const Home = lazy(() => import("./pages/Home/Home"));
 const NotFound = lazy(() => import("./pages/Not Found/NotFound"));
 const ProductHomePage = lazy(
@@ -17,6 +18,7 @@ function App() {
             <Route path="home" element={<Home />} />
           </Route>
           <Route path="/:productType" element={<ProductHomePage />} />
+          <Route path="/:productType/:productName" element={<ProductPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Suspense>
