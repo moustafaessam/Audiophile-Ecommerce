@@ -8,6 +8,7 @@ import StoreDescription from "../../components/UI/StoreDescription/StoreDescript
 import Footer from "../../components/Footer/Footer";
 import Product from "../../features/ProductPage/Product/Product";
 import Images from "../../features/ProductPage/Images/Images";
+import ProductExtraDetails from "../../features/ProductPage/ProductExtraDetails/ProductExtraDetails";
 
 export default function ProductPage() {
   const { productType, productName } = useParams();
@@ -20,6 +21,7 @@ export default function ProductPage() {
       <Header />
       <GoBack />
       <Product />
+      <ProductExtraDetails />
       <Images />
       <ProductListing />
       <StoreDescription />
