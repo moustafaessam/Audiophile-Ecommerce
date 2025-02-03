@@ -12,7 +12,11 @@ export default function ProductYX1() {
       <ProductYX1ImageDiv></ProductYX1ImageDiv>
       <ProductYX1Details>
         <ProductYX1Name>YX1 EARPHONES</ProductYX1Name>
-        <SeeButton textColor="black" styles={{ border: "2px solid black" }} />
+        <SeeButton
+          textColor="black"
+          styles={{ border: "2px solid black" }}
+          path="/earphones/yx1-earphones"
+        />
       </ProductYX1Details>
     </ProductYX1Container>
   );

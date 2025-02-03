@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 export const StyledSmallDeviceNavContainer = styled.div`
   position: fixed;
@@ -33,4 +34,7 @@ export const StyledNavContainer = styled.div`
   font-size: 1.6rem;
 `;
 
-export const StyledNavItem = styled.p``;
+export const StyledNavItem = styled(Link)`
+  text-decoration: none;
+  color: var(--white);
+`;

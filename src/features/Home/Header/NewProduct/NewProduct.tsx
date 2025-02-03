@@ -15,7 +15,11 @@ export default function NewProduct() {
         Experience natural, lifelike audio and exceptional build quality made
         for the passionate music enthusiast.
       </StyledNewProductDetails>
-      <SeeButton textColor="white" backgroundColor="var(--dark-brown)" />
+      <SeeButton
+        textColor="white"
+        backgroundColor="var(--dark-brown)"
+        path="/headphones/xx99-mark-two-headphones"
+      />
     </StyledNewProductContainer>
   );
 }

@@ -9,6 +9,7 @@ import Footer from "../../components/Footer/Footer";
 import Product from "../../features/ProductPage/Product/Product";
 import Images from "../../features/ProductPage/Images/Images";
 import ProductExtraDetails from "../../features/ProductPage/ProductExtraDetails/ProductExtraDetails";
+import AlsoLike from "../../features/ProductPage/AlsoLike/AlsoLike";
 
 export default function ProductPage() {
   const { productType, productName } = useParams();
@@ -23,6 +24,7 @@ export default function ProductPage() {
       <Product />
       <ProductExtraDetails />
       <Images />
+      <AlsoLike />
       <ProductListing />
       <StoreDescription />
       <Footer />

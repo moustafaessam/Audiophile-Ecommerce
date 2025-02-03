@@ -13,6 +13,10 @@ export default function SmallDeviceNav({
   isClicked,
   handleClick,
 }: SmallDeviceNavProps) {
+  function handleChangePage() {
+    handleClick();
+  }
+
   return (
     <StyledSmallDeviceNavContainer>
       <StyledNavImage
@@ -21,10 +25,18 @@ export default function SmallDeviceNav({
         alt={isClicked ? "nav-close" : "nav-open"}
       />
       <StyledNavContainer>
-        <StyledNavItem>Home</StyledNavItem>
-        <StyledNavItem>Headphones</StyledNavItem>
-        <StyledNavItem>Speakers</StyledNavItem>
-        <StyledNavItem>Earphones</StyledNavItem>
+        <StyledNavItem to="/home" onClick={handleChangePage}>
+          Home
+        </StyledNavItem>
+        <StyledNavItem to="/headphones" onClick={handleChangePage}>
+          Headphones
+        </StyledNavItem>
+        <StyledNavItem to="/speakers" onClick={handleChangePage}>
+          Speakers
+        </StyledNavItem>
+        <StyledNavItem to="/earphones" onClick={handleChangePage}>
+          Earphones
+        </StyledNavItem>
       </StyledNavContainer>
     </StyledSmallDeviceNavContainer>
   );

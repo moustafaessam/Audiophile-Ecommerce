@@ -17,7 +17,11 @@ export default function ProductZX9() {
           Upgrade to premium speakers that are phenomenally built to deliver
           truly remarkable sound.
         </StyledProductZX9DetailsText>
-        <SeeButton textColor="white" backgroundColor="black" />
+        <SeeButton
+          textColor="white"
+          backgroundColor="black"
+          path="/speakers/zx9-speaker"
+        />
       </StyledProductZX9Deatils>
     </StyledProductZX9Container>
   );

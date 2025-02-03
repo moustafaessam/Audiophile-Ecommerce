@@ -10,7 +10,11 @@ export default function ProductZX7() {
     <StyledProductZX7Container>
       <StyledProductZX9DetailsContainer>
         <StyledProductZX7Name>ZX7 SPEAKER</StyledProductZX7Name>
-        <SeeButton textColor="color" styles={{ border: "2px solid black" }} />
+        <SeeButton
+          textColor="color"
+          styles={{ border: "2px solid black" }}
+          path="/speakers/zx7-speaker"
+        />
       </StyledProductZX9DetailsContainer>
     </StyledProductZX7Container>
   );

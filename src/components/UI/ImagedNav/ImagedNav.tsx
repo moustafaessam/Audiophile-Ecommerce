@@ -8,12 +8,15 @@ import {
 } from "./ImagedNav.styles";
 
 export default function ImagedNav() {
+  function handleScroll() {
+    window.scrollTo(0, 0);
+  }
   return (
     <StyledImagedNavContainer>
       <StyledImagedNavItem>
         <StyledNavImage src="/images/shared/desktop/image-category-thumbnail-headphones.png" />
         <StyledNavName>Headphones</StyledNavName>
-        <StyledNavShop>
+        <StyledNavShop to="/headphones" onClick={handleScroll}>
           Shop
           <StyledArrowImage src="/images/shared/desktop/icon-arrow-right.svg" />
         </StyledNavShop>
@@ -21,7 +24,7 @@ export default function ImagedNav() {
       <StyledImagedNavItem>
         <StyledNavImage src="/images/shared/desktop/image-category-thumbnail-speakers.png" />
         <StyledNavName>Speakers</StyledNavName>
-        <StyledNavShop>
+        <StyledNavShop to="/speakers" onClick={handleScroll}>
           Shop
           <StyledArrowImage src="/images/shared/desktop/icon-arrow-right.svg" />
         </StyledNavShop>
@@ -29,7 +32,7 @@ export default function ImagedNav() {
       <StyledImagedNavItem>
         <StyledNavImage src="/images/shared/desktop/image-category-thumbnail-earphones.png" />
         <StyledNavName>Earphones</StyledNavName>
-        <StyledNavShop>
+        <StyledNavShop to="/earphones" onClick={handleScroll}>
           Shop
           <StyledArrowImage src="/images/shared/desktop/icon-arrow-right.svg" />
         </StyledNavShop>

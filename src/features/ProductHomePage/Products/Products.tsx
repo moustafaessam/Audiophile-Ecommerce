@@ -14,8 +14,6 @@ import { useParams } from "react-router-dom";
 
 export default function Products() {
   const params = useParams();
-  console.log("yes here", params.productType, data[0].category);
-  console.log(data[0].slug);
   return (
     <>
       {data.map((element) => {
@@ -46,6 +44,7 @@ export default function Products() {
                 <SeeButton
                   textColor="white"
                   backgroundColor="var(--dark-brown)"
+                  path={`/${params.productType}/${element.slug}`}
                 />
               </StyledProductDetails>
             </StyledProductHomeContainer>

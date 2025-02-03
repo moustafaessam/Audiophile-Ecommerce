@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 type StyledNvTextContainerProps = {
   isHidden: boolean;
@@ -27,4 +28,7 @@ export const StyledNvTextContainer = styled.div<StyledNvTextContainerProps>`
   }
 `;
 
-export const StyledNavText = styled.p``;
+export const StyledNavText = styled(Link)`
+  text-decoration: none;
+  color: var(--white);
+`;

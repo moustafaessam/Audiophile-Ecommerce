@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 export const StyledImagedNavContainer = styled.div`
   display: grid;
@@ -60,7 +61,7 @@ export const StyledNavName = styled.p`
   }
 `;
 
-export const StyledNavShop = styled.p`
+export const StyledNavShop = styled(Link)`
   color: #000000;
   opacity: 50%;
   font-family: "Manrope Bold";
@@ -70,6 +71,7 @@ export const StyledNavShop = styled.p`
   align-items: center;
   gap: 1.3rem;
   cursor: pointer;
+  text-decoration: none;
 `;
 
 export const StyledArrowImage = styled.img``;
