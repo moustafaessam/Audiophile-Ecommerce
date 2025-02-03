@@ -47,7 +47,7 @@ export const StyledProductDetails = styled.div`
 export const StyledNewProduct = styled.div`
   font-size: 1.4rem;
   color: var(--dark-brown);
-  letter-spacing: 0.1rem;
+  letter-spacing: 1rem;
   font-family: "Manrope Medium";
   text-transform: uppercase;
   margin-bottom: 1.6rem;
