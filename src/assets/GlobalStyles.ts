@@ -24,11 +24,11 @@ const GlobalStyles = createGlobalStyle`
   html {
     font-size: 62.5%;
   }
-  /* html , body , #root {
+  html , body , #root {
     width: fit-content;
     min-width: 100vw;
     min-height: 100vh;
-  } */
+  }
   :root {
     /* Colors */
     --dark-brown: #D87D4A;

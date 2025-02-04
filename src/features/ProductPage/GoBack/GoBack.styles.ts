@@ -9,7 +9,7 @@ export const StyledBackContainer = styled.div`
     padding: 3.2rem 0;
   }
   @media (max-width: 640px) {
-    padding: 3.2rem 2.4rem;
+    max-width: 32.7rem;
   }
 `;
 
