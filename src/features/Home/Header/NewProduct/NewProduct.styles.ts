@@ -1,8 +1,6 @@
 import styled from "styled-components";
 
 export const StyledNewProductContainer = styled.div`
-  position: relative;
-  z-index: 99;
   max-width: 39.8rem;
   color: var(--white);
   margin-top: 12.8rem;

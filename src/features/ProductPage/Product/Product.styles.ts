@@ -147,4 +147,23 @@ export const StyledAddToCart = styled.button`
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  &:hover {
+    opacity: 25%;
+  }
+`;
+
+export const StyledItemsNumberInCartMessage = styled.p`
+  color: #007bff;
+  font-family: "Manrope Medium";
+  font-size: 1.3rem;
+`;
+
+type StyledCartMessageProps = {
+  color: "error" | "success";
+};
+
+export const StyledCartMessage = styled.p<StyledCartMessageProps>`
+  color: ${(props) => (props.color === "error" ? "#dc3545" : "#28a745")};
+  font-family: "Manrope Medium";
+  font-size: 1.3rem;
 `;

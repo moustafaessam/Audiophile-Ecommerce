@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const StyledNotFound = styled.div`
-  border: 3px solid green;
   width: 100vw;
   height: 100vh;
   display: flex;

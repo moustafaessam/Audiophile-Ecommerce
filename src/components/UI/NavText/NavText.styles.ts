@@ -31,4 +31,8 @@ export const StyledNvTextContainer = styled.div<StyledNvTextContainerProps>`
 export const StyledNavText = styled(Link)`
   text-decoration: none;
   color: var(--white);
+
+  &:hover {
+    color: #d87d4a;
+  }
 `;

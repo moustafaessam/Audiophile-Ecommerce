@@ -99,4 +99,7 @@ export const FooterSingleLink = styled.img`
   width: 2.4rem;
   height: 2.4rem;
   cursor: pointer;
+  &:hover {
+    opacity: 25%;
+  }
 `;

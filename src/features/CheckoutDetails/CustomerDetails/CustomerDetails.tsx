@@ -1,19 +1,12 @@
-import { useForm } from "react-hook-form";
-import { DevTool } from "@hookform/devtools";
 import {
   StyledAddressHeader,
   StyledAddressInput,
   StyledAddressLabel,
   StyledBillingDetailsContainer,
   StyledBillingDetailsHeader,
-  StyledCityHeader,
-  StyledCityInput,
-  StyledCityLabel,
-  StyledCityOption,
-  StyledCountryHeader,
-  StyledCountryInput,
-  StyledCountryLabel,
-  StyledCountryOption,
+  StyledCODContainer,
+  StyledCODImage,
+  StyledCODText,
   StyledCustomerDetailsContainer,
   StyledEmailHeader,
   StyledEmailInput,
@@ -46,8 +39,10 @@ import {
   StyledZipInput,
   StyledZipLabel,
 } from "./CustomerDetails.styles";
+import { useFormContext } from "react-hook-form";
+import CityAndCountryInput from "./CityAndCountryInput/CityAndCountryInput";
 
-type FormProps = {
+export type FormProps = {
   name: string;
   email: string;
   phoneNumber: number;
@@ -61,18 +56,15 @@ type FormProps = {
 };
 
 export default function CustomerDetails() {
-  const form = useForm<FormProps>({ mode: "onChange" });
   const {
     register,
-    control,
+
     formState: { errors },
     watch,
-    handleSubmit,
-  } = form;
+    setValue,
+  } = useFormContext<FormProps>();
   const watchPaymentOption = watch("paymentOption");
-  function onSubmit(data: FormProps) {
-    console.log(data);
-  }
+
   return (
     <StyledCustomerDetailsContainer>
       <StyledFormHeader>Checkout</StyledFormHeader>
@@ -193,50 +185,7 @@ export default function CustomerDetails() {
             })}
           />
         </StyledZipLabel>
-        <StyledCityLabel htmlFor="city">
-          <StyledCityHeader>
-            City
-            {errors.city?.message && (
-              <StyledError>{errors.city.message}</StyledError>
-            )}
-          </StyledCityHeader>
-          <StyledCityInput
-            id="country"
-            {...register("city", {
-              required: { value: true, message: "Field is Required" },
-            })}
-          >
-            <StyledCityOption selected disabled value="">
-              Select a city
-            </StyledCityOption>
-            <StyledCityOption value="cairo">Cairo</StyledCityOption>
-            <StyledCityOption value="alexandria">Alexandria</StyledCityOption>
-            <StyledCityOption value="fayom">Fayom</StyledCityOption>
-          </StyledCityInput>
-        </StyledCityLabel>
-        <StyledCountryLabel htmlFor="country">
-          <StyledCountryHeader>
-            Country
-            {errors.country?.message && (
-              <StyledError>{errors.country.message}</StyledError>
-            )}
-          </StyledCountryHeader>
-          <StyledCountryInput
-            id="country"
-            {...register("country", {
-              required: { value: true, message: "Field is Required" },
-            })}
-          >
-            <StyledCountryOption value="" disabled selected>
-              Select a country
-            </StyledCountryOption>
-            <StyledCountryOption value="egypt">Egypt</StyledCountryOption>
-            <StyledCountryOption value="malaysia">Malaysia</StyledCountryOption>
-            <StyledCountryOption value="saudi arabia">
-              Saudi Arabia
-            </StyledCountryOption>
-          </StyledCountryInput>
-        </StyledCountryLabel>
+        <CityAndCountryInput />
       </StyledShippingDetailsContainer>
       <StyledPaymentDetailsHeader>Payment Details</StyledPaymentDetailsHeader>
       <StyledPaymentDetailsContainer>
@@ -268,47 +217,67 @@ export default function CustomerDetails() {
               })}
               id="cashOnDelivery"
               value="cashOnDelivery"
+              onClick={() => {
+                setValue("eMoneyNumber", "");
+                setValue("eMoneyPin", "");
+              }}
             />
           </StyledRadioStyle>
           <StyledPaymentOptionText>Cash on Delivery</StyledPaymentOptionText>
         </StyledPaymentOptionContainer>
       </StyledPaymentDetailsContainer>
-      <StyledEmoneyDetailsContainer>
-        <StyledEmoneyNumberLabel>
-          <StyledEmoneyNumberHeader>
-            e-money Number
-            {watchPaymentOption === "eMoney" &&
-              errors.eMoneyNumber?.message && (
-                <StyledError>{errors.eMoneyNumber.message}</StyledError>
+
+      {watchPaymentOption === "eMoney" ? (
+        <StyledEmoneyDetailsContainer>
+          <StyledEmoneyNumberLabel>
+            <StyledEmoneyNumberHeader>
+              e-money Number
+              {watchPaymentOption === "eMoney" &&
+                errors.eMoneyNumber?.message && (
+                  <StyledError>{errors.eMoneyNumber.message}</StyledError>
+                )}
+            </StyledEmoneyNumberHeader>
+            <StyledEmoneyNumberInput
+              disabled={watchPaymentOption !== "eMoney"}
+              type="text"
+              {...register("eMoneyNumber", {
+                required: {
+                  value: watchPaymentOption === "eMoney" ? true : false,
+                  message: "Field is Required",
+                },
+              })}
+            />
+          </StyledEmoneyNumberLabel>
+          <StyledEmoneyPinLabel>
+            <StyledEmoneyPinHeader>
+              e-money PIN
+              {watchPaymentOption === "eMoney" && errors.eMoneyPin?.message && (
+                <StyledError>{errors.eMoneyPin.message}</StyledError>
               )}
-          </StyledEmoneyNumberHeader>
-          <StyledEmoneyNumberInput
-            disabled={watchPaymentOption !== "eMoney"}
-            type="text"
-            {...register("eMoneyNumber", {
-              required: { value: true, message: "Field is Required" },
-            })}
-          />
-        </StyledEmoneyNumberLabel>
-        <StyledEmoneyPinLabel>
-          <StyledEmoneyPinHeader>
-            e-money PIN
-            {watchPaymentOption === "eMoney" && errors.eMoneyPin?.message && (
-              <StyledError>{errors.eMoneyPin.message}</StyledError>
-            )}
-          </StyledEmoneyPinHeader>
-          <StyledEmoneyPinInput
-            disabled={watchPaymentOption !== "eMoney"}
-            {...register("eMoneyPin", {
-              required: { value: true, message: "Field is Required" },
-            })}
-          />
-        </StyledEmoneyPinLabel>
-        <button type="button" onClick={handleSubmit(onSubmit)}>
-          Submit
-        </button>
-      </StyledEmoneyDetailsContainer>
-      <DevTool control={control} />
+            </StyledEmoneyPinHeader>
+            <StyledEmoneyPinInput
+              disabled={watchPaymentOption !== "eMoney"}
+              {...register("eMoneyPin", {
+                required: {
+                  value: watchPaymentOption === "eMoney" ? true : false,
+                  message: "Field is Required",
+                },
+              })}
+            />
+          </StyledEmoneyPinLabel>
+        </StyledEmoneyDetailsContainer>
+      ) : watchPaymentOption === "cashOnDelivery" ? (
+        <StyledCODContainer>
+          <StyledCODImage src="/images/checkout/icon-cash-on-delivery.svg" />
+          <StyledCODText>
+            The ‘Cash on Delivery’ option enables you to pay in cash when our
+            delivery courier arrives at your residence. Just make sure your
+            address is correct so that your order will not be cancelled.
+          </StyledCODText>
+        </StyledCODContainer>
+      ) : (
+        ""
+      )}
     </StyledCustomerDetailsContainer>
   );
 }

@@ -1,13 +1,15 @@
 import styled from "styled-components";
 
-export const StyledCustomerDetailsContainer = styled.form`
+export const StyledCustomerDetailsContainer = styled.section`
   max-width: 73rem;
   width: 100%;
   border-radius: 0.8rem;
   padding: 5.4rem 4.8rem 4.8rem 4.8rem;
   background-color: var(--white);
-  @media (max-width: 768px) {
+  @media (max-width: 1150px) {
     max-width: 100%;
+  }
+  @media (max-width: 768px) {
     padding: 3rem 2.7rem;
   }
   @media (max-width: 640px) {
@@ -144,32 +146,6 @@ export const StyledZipHeader = styled(StyledNameHeader)``;
 
 export const StyledZipInput = styled(StyledNameInput)``;
 
-export const StyledCityLabel = styled(StyledNameLabel)``;
-
-export const StyledCityHeader = styled(StyledNameHeader)``;
-
-export const StyledCityInput = styled(StyledNameInput).attrs({
-  as: "select",
-})`
-  cursor: pointer;
-`;
-
-export const StyledCityOption = styled.option`
-  cursor: pointer;
-`;
-
-export const StyledCountryLabel = styled(StyledNameLabel)``;
-
-export const StyledCountryHeader = styled(StyledNameHeader)``;
-
-export const StyledCountryOption = styled.option``;
-
-export const StyledCountryInput = styled(StyledNameInput).attrs({
-  as: "select",
-})`
-  cursor: pointer;
-`;
-
 export const StyledPaymentDetailsHeader = styled(StyledBillingDetailsHeader)``;
 
 export const StyledPaymentDetailsContainer = styled.div`
@@ -207,7 +183,11 @@ export const StyledPaymentOptionContainer = styled.label`
   border: 1px solid var(--grey);
   gap: 1.6rem;
   border-radius: 0.8rem;
+  cursor: pointer;
   &:has(input[type="radio"]:checked) {
+    border: 1px solid var(--dark-brown);
+  }
+  &:hover {
     border: 1px solid var(--dark-brown);
   }
 `;
@@ -266,3 +246,19 @@ export const StyledEmoneyPinLabel = styled(StyledNameLabel)``;
 export const StyledEmoneyPinHeader = styled(StyledNameHeader)``;
 
 export const StyledEmoneyPinInput = styled(StyledEmoneyNumberInput)``;
+
+export const StyledCODContainer = styled.div`
+  display: flex;
+  gap: 3.2rem;
+  align-items: center;
+`;
+
+export const StyledCODImage = styled.img``;
+
+export const StyledCODText = styled.p`
+  font-family: "Manrope Medium";
+  font-size: 1.5rem;
+  line-height: 2.5rem;
+  opacity: 50%;
+  color: var(--black);
+`;

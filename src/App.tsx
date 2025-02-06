@@ -20,7 +20,9 @@ function App() {
           </Route>
           <Route path="/:productType" element={<ProductHomePage />} />
           <Route path="/:productType/:productName" element={<ProductPage />} />
+
           <Route path="/checkout" element={<Checkout />} />
+
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Suspense>

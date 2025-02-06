@@ -37,4 +37,7 @@ export const StyledNavContainer = styled.div`
 export const StyledNavItem = styled(Link)`
   text-decoration: none;
   color: var(--white);
+  &:hover {
+    color: var(--dark-brown);
+  }
 `;

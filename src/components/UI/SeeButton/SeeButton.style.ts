@@ -17,4 +17,7 @@ export const StyledSeeButton = styled.button<StyledSeeButtonProps>`
   font-size: 1.3rem;
   text-transform: uppercase;
   cursor: pointer;
+  &:hover {
+    opacity: 25%;
+  }
 `;
