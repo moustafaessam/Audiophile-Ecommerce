@@ -14,7 +14,7 @@ import data from "../../../assets/data.json";
 import SeeButton from "../../../components/UI/SeeButton/SeeButton";
 
 export default function AlsoLike() {
-  const { productName, productType } = useParams();
+  const { productName } = useParams();
   const productfiltering = data.filter(
     (product) => productName?.toLowerCase() === product.slug
   );
@@ -24,7 +24,6 @@ export default function AlsoLike() {
       <StyledAlsoLikeText>You May Also Like</StyledAlsoLikeText>
       <StyledOtherItemsContainer>
         {product.others.map((element) => {
-          const elementCategory = data.find((product) => product.slug);
           return (
             <StyledOtherItemContainer key={element.slug}>
               <StyledOtherItemPicture>
@@ -43,7 +42,7 @@ export default function AlsoLike() {
                 <SeeButton
                   textColor="var(--white)"
                   backgroundColor="var(--dark-brown)"
-                  path={`/${productType}/${element.slug}`}
+                  path={`/${element.category}/${element.slug}`}
                 />
               </SeeButtonWrapper>
             </StyledOtherItemContainer>
