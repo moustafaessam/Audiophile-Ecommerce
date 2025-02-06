@@ -23,29 +23,32 @@ export default function AlsoLike() {
     <StyledAlsoLikeMainContainer>
       <StyledAlsoLikeText>You May Also Like</StyledAlsoLikeText>
       <StyledOtherItemsContainer>
-        {product.others.map((element) => (
-          <StyledOtherItemContainer key={element.slug}>
-            <StyledOtherItemPicture>
-              <StyledOtherItemSource
-                media="(max-width:640px)"
-                srcSet={element.image.mobile}
-              />
-              <StyledOtherItemSource
-                media="(max-width:768px)"
-                srcSet={element.image.tablet}
-              />
-              <StyledOtherItemImage src={element.image.desktop} />
-            </StyledOtherItemPicture>
-            <StyledOtherItemName>{element.name}</StyledOtherItemName>
-            <SeeButtonWrapper>
-              <SeeButton
-                textColor="var(--white)"
-                backgroundColor="var(--dark-brown)"
-                path={`/${productType}/${element.slug}`}
-              />
-            </SeeButtonWrapper>
-          </StyledOtherItemContainer>
-        ))}
+        {product.others.map((element) => {
+          const elementCategory = data.find((product) => product.slug);
+          return (
+            <StyledOtherItemContainer key={element.slug}>
+              <StyledOtherItemPicture>
+                <StyledOtherItemSource
+                  media="(max-width:640px)"
+                  srcSet={element.image.mobile}
+                />
+                <StyledOtherItemSource
+                  media="(max-width:768px)"
+                  srcSet={element.image.tablet}
+                />
+                <StyledOtherItemImage src={element.image.desktop} />
+              </StyledOtherItemPicture>
+              <StyledOtherItemName>{element.name}</StyledOtherItemName>
+              <SeeButtonWrapper>
+                <SeeButton
+                  textColor="var(--white)"
+                  backgroundColor="var(--dark-brown)"
+                  path={`/${productType}/${element.slug}`}
+                />
+              </SeeButtonWrapper>
+            </StyledOtherItemContainer>
+          );
+        })}
       </StyledOtherItemsContainer>
     </StyledAlsoLikeMainContainer>
   );

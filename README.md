@@ -1,50 +1,51 @@
-# React + TypeScript + Vite
+# Audiophile Ecommerce Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Project Overview
 
-Currently, two official plugins are available:
+The **Audiophile** project is an ecommerce website designed for selling audio equipment, including **speakers**, **headphones**, and **earphones**. The site is structured to display a variety of products, each with its own dedicated sub-page for more details.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The website is **fully responsive**, ensuring that it works seamlessly on a variety of screen sizes, from desktop to mobile.
 
-## Expanding the ESLint configuration
+## Key Features
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- **Responsive Design**: The website adapts to different screen sizes, ensuring a smooth experience across devices.
+- **Product Pages**: Each product type (speakers, headphones, earphones) has its own page, and each product has a sub-page with detailed information.
+- **Routing with React Router**: Used **React Router** to manage navigation between different pages and sub-pages.
+- **Checkout with Data Validation**: **React Hook Form** is used for data validation during checkout, making the process smooth and error-free.
+- **State Management with Redux Toolkit**: The application uses **Redux Toolkit** for state management, helping manage the cart, user authentication, and other stateful features.
+- **Data Persistence in Local Storage**: Cart data and user preferences are stored in **localStorage**, allowing the cart to persist even after page refreshes.
+- **Styled Components**: Styling for components is handled using **Styled Components**, enabling better separation of concerns and reusability.
+- **TypeScript**: The project is built using **TypeScript** for type safety and better development experience.
 
-- Configure the top-level `parserOptions` property like this:
+## Tech Stack
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+- **React**: JavaScript library for building the user interface.
+- **React Router**: Used for handling routing and navigation.
+- **React Hook Form**: Utilized for form handling and validation during checkout.
+- **Redux Toolkit**: Simplified state management and data flow within the app.
+- **localStorage**: Used to store data like cart contents across sessions.
+- **Styled Components**: For component-level styling.
+- **TypeScript**: Used for type safety and development experience.
+- **Vite**: A modern build tool that provides a faster and leaner development experience.
+- **ESLint**: Integrated to ensure clean code with no bugs.
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## Project Live URL
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+You can view the live version of the project at the following link:
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+- [Audiophile Ecommerce Website (Live Version)](https://audiophile-ecommerce-best-audio.netlify.app/)
+
+Alternatively, you can run the project locally by following these steps:
+
+1. Install the necessary dependencies:
+
+   ```bash
+   npm install
+
+   ```
+
+1. Start the development server:
+
+   ```bash
+   npm run dev
+   ```
