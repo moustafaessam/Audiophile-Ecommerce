@@ -14,7 +14,7 @@ import data from "../../../assets/data.json";
 import SeeButton from "../../../components/UI/SeeButton/SeeButton";
 
 export default function AlsoLike() {
-  const { productName } = useParams();
+  const { productName, productType } = useParams();
   const productfiltering = data.filter(
     (product) => productName?.toLowerCase() === product.slug
   );
@@ -41,6 +41,7 @@ export default function AlsoLike() {
               <SeeButton
                 textColor="var(--white)"
                 backgroundColor="var(--dark-brown)"
+                path={`/${productType}/${element.slug}`}
               />
             </SeeButtonWrapper>
           </StyledOtherItemContainer>
